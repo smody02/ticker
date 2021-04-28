@@ -41,7 +41,7 @@ var port = process.env.PORT || 3000;
           var filter = {projection: {"name": 1, "ticker": 1, "_id":0}};
         	dbo.collection('names').find(query, filter).toArray(function(err, result) {
             if (err){
-              res.write("error");
+              res.write("Please input a valid company name!");
               throw err;
             }
             console.log(result);
@@ -56,11 +56,12 @@ var port = process.env.PORT || 3000;
 
       }else{
         // res.write(" <br> Ticker = Secured!! <br>")
+        var upper  = pdata['the_name'].toUpperCase();
         var query = {"ticker":pdata['the_name']};
         var filter = {projection: {"name": 1, "ticker": 1, "_id":0}};
         dbo.collection('names').find(query, filter).toArray(function(err, result) {
           if (err){
-            res.write("error");
+            res.write("Please input a valid stock ticker!");
             throw err;
           }
           console.log(result);
