@@ -48,7 +48,6 @@ var port = process.env.PORT || 3000;
             for (i = 0; i < result.length; i++){
               res.write("The stock tiker for " + result[i]["name"] + " is " + result[i]["ticker"]);
             }
-            db.close();
             res.end();
 
           });
@@ -70,8 +69,6 @@ var port = process.env.PORT || 3000;
             for (i = 0; i < result.length; i++){
               res.write(result[i]["name"] + "<br>");
           }
-
-          db.close();
           res.end();
 
 
